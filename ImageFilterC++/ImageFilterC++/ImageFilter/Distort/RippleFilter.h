@@ -53,7 +53,7 @@ public:
     double shift_amount (int nPos) const
     {
         if (_sinType)
-            return _amplitude * sin(nPos*2*LIB_PI/_waveLength) ;
+            return _amplitude * sin(nPos * 2 * LIB_PI / _waveLength) ;
         else
             return floor (_amplitude * (fabs ((((nPos % _waveLength) / (double)_waveLength) * 4) - 2) - 1)) ;
     }

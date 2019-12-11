@@ -16,13 +16,13 @@
  * along with this library; if not, write to the Free Software Foundation.
  */
 
-#if !defined(WaveFilter_H)
+#ifndef WaveFilter_H
 #define WaveFilter_H
 
 #include "BilinearDistort.h"
 
-
-namespace imagefilter{
+namespace imagefilter
+{
 
 class WaveFilter : public BilinearDistort{
 

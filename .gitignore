@@ -35,3 +35,5 @@ ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.obj
 ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.Build.CppClean.log
 *.log
 *.obj
+ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.obj
+*.obj

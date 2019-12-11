@@ -43,7 +43,8 @@ public:
                 b = (255-imageIn.getBComponent(x, y));
 
                 // Convert to gray with constant factors 0.2126, 0.7152, 0.0722
-                int gray = (r *  6966 + g * 23436 + b *  2366) >> 15;
+                //int gray = (r *  6966 + g * 23436 + b *  2366) >> 15;
+                int gray = (((r * 2126) + (g * 7152) + (b * 722)) / 10000); // MODIFY: cepiloth
 
                 // Apply Tint color
                 r = (byte)((gray * tr) >> 8);
