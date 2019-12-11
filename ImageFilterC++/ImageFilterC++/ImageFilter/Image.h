@@ -34,36 +34,19 @@ private:
 
 public:
 	 
-#ifdef WIN32
 	//format of image (jpg/png)
     CString formatName;
 	 // RGB Array Color
 	int* colorArray;
-#else //only for apple ios
-	//format of image (jpg/png)
-	NSString formatName;
-	 // RGB Array Color
-	UInt8* colorArray;
-	UInt8* destImagecolorArray;
-#endif
 
 public:
     
-#ifdef WIN32
 	//original bitmap image
     CImage* image;
     CImage* destImage;
-#else //only for apple ios
-	//original bitmap image
-	CGImageRef image;
-	CFDataRef   m_DataRef;
-	CFDataRef   m_OutDataRef;
-    CGImageRef destImage;
-#endif    
    
 	Image(){}; 
 
-#ifdef WIN32
 	//dimensions of image 
     Image(CImage *img){                
         image =  img;
@@ -74,20 +57,6 @@ public:
 	    destImage = dest;
         updateColorArray();
     };
-#else //only for apple ios
-	//dimensions of image 
-	Image(CGImageRef img){                
-        image = img;
-		formatName = "jpg";
-	    m_DataRef = CGDataProviderCopyData(CGImageGetDataProvider(img));  
-		m_OutDataRef = CGDataProviderCopyData(CGImageGetDataProvider(img));  
-		colorArray = (UInt8 *) CFDataGetBytePtr(m_DataRef);  
-		destImagecolorArray = (UInt8 *) CFDataGetBytePtr(m_OutDataRef);  
-	
-		height = CGImageGetHeight(inImage);
-		width = CGImageGetWidth(inImage);
-    };
-#endif   
 
     Image clone(){
     	return Image(image);
@@ -105,7 +74,6 @@ public:
         }
     }
     
-#ifdef WIN32
     /**
      * Set color array for image - called on initialisation
      * by constructor
@@ -130,7 +98,6 @@ public:
 			  }
 		 }
     }
-#endif    
     
     /**
      * Method to set the color of a specific pixel
@@ -141,14 +108,10 @@ public:
      */
     void setPixelColor(int x, int y, int color){
 		colorArray[((y * width+x))] = color;
-#ifdef WIN32
 		BYTE r  = (0xFF0000 &color) >> 16;
 		BYTE g  = (0x00FF00 &color) >> 8;
 		BYTE b  = 0x0000FF &color;
 		destImage->SetPixelRGB(x, y, r, g, b);
-#else //only for apple ios
-		destImagecolorArray[((y * width+x))] = color;
-#endif
     }
     
 
@@ -174,16 +137,11 @@ public:
      */
     void setPixelColor(int x, int y, int r, int g, int b){
 		colorArray[((y * width+x))] = (255 << 24) + (r << 16) + (g << 8) + b;
-#ifdef WIN32
 		destImage->SetPixelRGB(x, y, r, g, b);
-#else //only for apple ios
-		destImagecolorArray[((y * width+x))] = (255 << 24) + (r << 16) + (g << 8) + b;
-#endif
     }
 
     
     void copyPixelsFromBuffer() { //将colorArray数组指针中的数据绑定到destImage
-#ifdef WIN32
 	    int index = 0;
 		for(int x = 0 ; x < (image->GetWidth() - 1); x++){
 			for(int y = 0 ; y < (image->GetHeight() - 1); y++){
@@ -192,22 +150,6 @@ public:
 				   index++;	  
 			  }
 		 }
-#else //only for apple ios
-	    CGContextRef ctx = CGBitmapContextCreate(destImagecolorArray,  							
-			                                     CGImageGetWidth(image),
-												 CGImageGetHeight(image),
-												 CGImageGetBitsPerComponent(image),	
-												 CGImageGetBytesPerRow(image),
-												 CGImageGetColorSpace(image),
-												 CGImageGetBitmapInfo(image) 
-												 ); 
-		destImage = CGBitmapContextCreateImage(ctx);  
-		//CGContextRelease(ctx);
-		//UIImage *finalImage = [UIImage imageWithCGImage:destImage];
-		//CGImageRelease(destImage);
-		//CFRelease(m_DataRef);
-        //CFRelease(m_OutDataRef);
-#endif
     }
     
     /**
@@ -330,43 +272,22 @@ public:
 	void Destroy()
 	{
 		delete colorArray;
-#ifdef WIN32
 		image->Destroy();
 		destImage->Destroy();
-#else
-		delete destImagecolorArray;
-		CGImageRelease(image);
-		CGImageRelease(destImage);
-		CFRelease(m_DataRef);
-		CFRelease(m_OutDataRef);
-#endif
 	}
 
-
-	//加载图片
-#ifdef WIN32	
 	static Image LoadImage(std::string imagePath){
 		CImage *cimage = new CImage;
 		CString filePath((CString)imagePath.c_str());
 		HRESULT hresult = cimage->Load(filePath);
 		if(cimage->IsNull()){
-		   std::cout<<"文件不存在或有异常";
+		   std::cout<<" failed load ";
 		   return 0;
 		}
 		Image image(cimage);
 		return image;
 	}
-#else
-	static Image LoadImage(NSString imagePath){
-		UIImage *image = [UIImage imageNamed:@imagePath];
-		CGImage image = image.CGImage;
-		printDateTime();
-		Image image(cimage);
-		return image;
-	}
-#endif
-
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

@@ -49,9 +49,6 @@ private:
 				imageIn.setPixelColor(x, y, SAFECOLOR(m_LUT[r]), SAFECOLOR(m_LUT[g]), SAFECOLOR(m_LUT[b]));
 			}
 		}
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 	    return imageIn;
     }
 };
@@ -101,5 +98,5 @@ private:
     }
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

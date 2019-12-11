@@ -88,12 +88,9 @@ public:
             ImageBlender blender;
             blender.Mode = BlendMode::Additive;
 		    imageIn = blender.Blend(clone, imageIn);
-#ifndef WIN32 //only for apple ios
-			imageIn.copyPixelsFromBuffer();
-#endif
             return clone;
         }
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

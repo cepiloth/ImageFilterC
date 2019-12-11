@@ -71,5 +71,5 @@ private:
 
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

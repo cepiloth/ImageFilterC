@@ -215,8 +215,6 @@ vector<IImageFilter*> LoadFilterVector(){
 	return vectorFilter;
 }
 
-#ifdef WIN32
-//保存图片
 void SaveImage(Image image, string savePath)
 {
 	CString outfilePath((CString)savePath.c_str());
@@ -230,20 +228,8 @@ void SaveImage(Image image, string savePath)
 	printDateTime();
 	//string s = "";char* p = (char*)s.c_str();cin>>p;
 }
-#else
-void SaveImage(Image image, NSString savePath) {
-	NSString outfilePath = savePath.c_str();
-	CGImageRef  destImage =  image.destImage;
-	UIImage *finalImage = [UIImage imageWithCGImage:destImage];
-	CGImageRelease(destImage);
-	image.Destroy();
-	printDateTime();
-	string s = "";char* p = (char*)s.c_str();cin>>p;
-}
-#endif
 
-
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
 	//开始处理图片
 	int i = 0;
@@ -252,18 +238,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	Image image = imagefilter::Image::LoadImage("d:\\source.jpg");
 	char filePath[64];
 	for(it=vectorFilter.begin(); it!=vectorFilter.end(); it++){    
-		//加载图片
-		Image effect = image.clone();
+		
+		Image image = imagefilter::Image::LoadImage("d:\\source.jpg");
 		printDateTime();
-		effect = (*it)->process(effect);
+		image = (*it)->process(image);
 		sprintf(filePath, "d:\\filter\\%d.jpg", i);  
 		string filename(filePath);
-#ifndef WIN32 //only for apple ios
-		image.copyPixelsFromBuffer();
-#endif
     	SaveImage(image, filename);
 		i++;
     }
 
+	return 0;
 }
 

@@ -53,12 +53,9 @@ public:
         imageIn = gradientMapFx.process(tempImg);
         imageIn = blender.Blend(imageIn, tempImg);
         imageIn = vignetteFx.process(imageIn);
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 	    return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

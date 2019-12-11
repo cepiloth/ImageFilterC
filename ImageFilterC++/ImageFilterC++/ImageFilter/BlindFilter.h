@@ -73,12 +73,9 @@ public:
 				imageIn.setPixelColor(x, y, (color.R * a + r * t) / 0xFF, (color.G * a + g * t) / 0xFF, (color.B * a + b * t) / 0xFF);
 			  }
 		  }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 		return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

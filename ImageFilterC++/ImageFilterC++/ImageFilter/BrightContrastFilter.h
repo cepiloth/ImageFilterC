@@ -89,13 +89,10 @@ public:
                     imageIn.setPixelColor(x, y, r, g, b);
                 }
             }
-#ifndef WIN32 //only for apple ios
-			imageIn.copyPixelsFromBuffer();
-#endif
             return imageIn;
         }
     };
-}// namespace HaoRan
+}// namespace imagefilter
 
 
 #endif

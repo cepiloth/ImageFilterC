@@ -120,12 +120,9 @@ public:
 				}
 			}
 		  }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
-		return imageIn;
+          return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

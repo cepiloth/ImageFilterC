@@ -269,9 +269,6 @@ private:
 					imageIn.setPixelColor(x, y, color.R, color.G, color.B);
 			  }
 		  }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 		return imageIn;
       
     }
@@ -282,5 +279,5 @@ private:
     }
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

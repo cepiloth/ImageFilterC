@@ -48,14 +48,10 @@ public:
          ImageBlender blender;
          blender.Mode = BlendMode::Subractive;
          imageIn = saturationFx.process(blender.Blend(clone, imageIn));
-
-#ifndef WIN32 //only for apple ios
-		 imageIn.copyPixelsFromBuffer();
-#endif
 	     return imageIn;
         //return imageIn;// saturationFx.process(imageIn);
 	 }
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

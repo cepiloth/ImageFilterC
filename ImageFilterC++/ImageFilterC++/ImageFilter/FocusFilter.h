@@ -81,14 +81,10 @@ public:
                 }
             }
         }
-
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 	    return imageIn;
         //return imageIn;// saturationFx.process(imageIn);
 	 }
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

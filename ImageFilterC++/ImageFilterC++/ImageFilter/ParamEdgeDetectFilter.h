@@ -135,12 +135,9 @@ public:
 	    }else{
 		    imageIn = ProcessGray(k00, k01, k02, -k00, -k01, -k02, imageIn, thresholdSq);	 
 		}
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 		return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

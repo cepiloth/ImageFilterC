@@ -93,5 +93,5 @@ public:
 	virtual ~IImageFilter() {}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

@@ -210,12 +210,9 @@ public:
 		        source1.setPixelColor(x, y, r >> 8, g >> 8, b >> 8);
 		    }
         }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 	    return source1;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

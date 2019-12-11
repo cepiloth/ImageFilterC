@@ -105,10 +105,10 @@ public:
 			render();
 		}	
 		imageIn.colorArray = temp;
-		imageIn.copyPixelsFromBuffer();
+		
 		return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

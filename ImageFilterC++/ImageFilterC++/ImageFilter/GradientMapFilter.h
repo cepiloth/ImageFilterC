@@ -67,13 +67,10 @@ public:
 	        }
 			bitmap.colorArray[i] = (0xff << 24) + (red[index] << 16) + (green[index] << 8) + blue[index];
 	    }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
 	    return bitmap;   	
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 
 #endif

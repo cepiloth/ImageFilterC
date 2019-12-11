@@ -281,12 +281,9 @@ public:
                 imageIn.setPixelColor(j, i, palette.Red[dist], palette.Green[dist], palette.Blue[dist]);
             }
         }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
         return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

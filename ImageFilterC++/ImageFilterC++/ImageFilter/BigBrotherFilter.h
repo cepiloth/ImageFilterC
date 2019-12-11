@@ -88,12 +88,9 @@ public:
                     drawTone(x,y,imageIn, arrDither);
             }
         }             
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
         return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

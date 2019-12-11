@@ -32,3 +32,6 @@ ImageFilterC++/.vs/ImageFilterC++/v16/Browse.VC.db
 ImageFilterC++/.vs/ImageFilterC++/v16/.suo
 ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.obj
 ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.obj
+ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.Build.CppClean.log
+*.log
+*.obj

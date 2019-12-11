@@ -97,12 +97,9 @@ public:
             	clone.setPixelColor(xx, yy, r, g, b);
   	       }
        }	
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
        return clone;  
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

@@ -174,12 +174,9 @@ public:
                 imageIn.setPixelColor(j, i, (byte)(imageArray[pos] * 255), (byte)(imageArray[pos + 1] * 255), (byte)(imageArray[pos + 2] * 255));
             }
         }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
         return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif

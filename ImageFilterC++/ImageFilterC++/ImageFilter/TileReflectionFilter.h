@@ -163,12 +163,9 @@ public:
 				   imageIn.setPixelColor(x, y, SAFECOLOR(r/aasamples), SAFECOLOR(g/aasamples), SAFECOLOR(b/aasamples));
 			  }
 		  }
-#ifndef WIN32 //only for apple ios
-		imageIn.copyPixelsFromBuffer();
-#endif
-		return imageIn;
+          return imageIn;
 	}
 };
 
-}// namespace HaoRan
+}// namespace imagefilter
 #endif
