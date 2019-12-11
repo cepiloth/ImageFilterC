@@ -101,6 +101,6 @@ release compile 환경에서의 속도
 [99] class imagefilter::HslModifyFilter *elapsed time 0.688202 ms
 [100] class imagefilter::HslModifyFilter *elapsed time 0.703475 ms
 [101] class imagefilter::HslModifyFilter *elapsed time 0.693226 ms
-
+ㅇ
 
 https://github.com/daizhenjun/ImageFilterC fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
