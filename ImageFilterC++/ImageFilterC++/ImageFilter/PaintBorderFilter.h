@@ -48,6 +48,10 @@ public:
             B = (color & 0x000000FF);
         }
 
+        std::string get_type_id() {
+            return typeid(this).name();
+        }
+
         //@Override
         virtual Image process(Image imageIn)
         {

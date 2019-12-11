@@ -23,7 +23,9 @@
 //typedef CImage UIImage;//CImage此变量在IOS系统中会变成UIImage;
 #include "Image.h"
 #include "math.h"
+#include <typeinfo>
 #include <vector>
+#include <string>
 
 #define   LIB_PI   3.14159265358979323846
 
@@ -71,6 +73,10 @@ class IImageFilter{
 public:
     virtual Image process(Image image){
 		return image;
+	}
+
+	virtual std::string get_type_id() {
+		return typeid(this).name();
 	}
 
 	//-------------------------------------------------------------------------------------

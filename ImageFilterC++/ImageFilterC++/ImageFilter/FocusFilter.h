@@ -40,6 +40,10 @@ public:
 		Sigma = 25.0f;
 	};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		int ratio = imageIn.getWidth() > imageIn.getHeight() ? imageIn.getHeight() * 32768 / imageIn.getWidth() : imageIn.getWidth() * 32768 / imageIn.getHeight();

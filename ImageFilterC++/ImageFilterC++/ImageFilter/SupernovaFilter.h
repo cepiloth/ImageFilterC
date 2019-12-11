@@ -74,6 +74,10 @@ public:
         }
     }
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		if((_pt.x + _pt.y) <= 0){

@@ -41,6 +41,10 @@ public:
          saturationFx.SaturationFactor = -0.6f;
      };
 
+     std::string get_type_id() {
+         return typeid(this).name();
+     }
+
 	 virtual Image process(Image imageIn)
 	 {
 		 Image clone = imageIn.clone();

@@ -40,6 +40,10 @@ public:
 
     };
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		static const int   pattern_width[] = {2, 1, 3, 5} ;

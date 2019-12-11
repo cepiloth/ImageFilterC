@@ -35,6 +35,11 @@ public:
     virtual int InitLUTtable (int nLUTIndex) =0 ;
 
 private:
+    
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
     virtual Image process(Image imageIn)
 	{
 		for (int i=0 ; i <= 0xFF ; i++)

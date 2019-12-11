@@ -43,6 +43,9 @@ public:
         m_offset_y =(offset_y > 2.0 ? 2.0 : ( offset_y< -2.0 ? 0 : offset_y));
     }
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
 
 	virtual Image process(Image imageIn)
 	{

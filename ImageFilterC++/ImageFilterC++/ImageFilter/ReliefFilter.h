@@ -30,6 +30,10 @@ public:
 
 	ReliefFilter(){};
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn)
 	{
 		for (int x = 0; x < (imageIn.getWidth() - 1); x++) {

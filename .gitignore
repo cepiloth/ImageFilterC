@@ -37,3 +37,9 @@ ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.Build.CppClean.log
 *.obj
 ImageFilterC++/ImageFilterC++/Debug/ImageFilterC++.obj
 *.obj
+ImageFilterC++/.vs/ImageFilterC++/v16/ipch/4a7c0b355e61c7ae.ipch
+ImageFilterC++/Release/ImageFilterC++.iobj
+ImageFilterC++/Release/ImageFilterC++.ipdb
+*.pdb
+*.tlog
+*.pch

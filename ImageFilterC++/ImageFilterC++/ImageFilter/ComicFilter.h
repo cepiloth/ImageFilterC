@@ -50,6 +50,10 @@ public:
 		edgeBlender.Mode = BlendMode::Lighten;
 	 };
 
+     std::string get_type_id() {
+         return typeid(this).name();
+     }
+
 	 virtual Image process(Image imageIn)
 	 {
 		Image saturated = saturationFx.process(imageIn.clone());

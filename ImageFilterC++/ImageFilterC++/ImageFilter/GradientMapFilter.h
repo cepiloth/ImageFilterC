@@ -34,6 +34,10 @@ public:
 	GradientMapFilter() : BrightnessFactor(0),ContrastFactor(0) {};
 	GradientMapFilter(Gradient gradient) : Map(gradient),  BrightnessFactor(0),ContrastFactor(0) {};
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn)
 	{
 		Palette palette = Map.CreatePalette(0x100);

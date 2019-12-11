@@ -42,6 +42,10 @@ public:
 		m_Mixture = mixture;
 	};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		int mix1 = (int) (m_Mixture * 255);

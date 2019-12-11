@@ -122,6 +122,10 @@ public:
 
 	ParamEdgeDetectFilter(): DoGrayConversion(true), DoInversion(true), Threshold(0.25), K00(1), K01(2), K02(1){};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		int k00 = (int) (K00 * 255);

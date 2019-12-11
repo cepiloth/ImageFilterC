@@ -3,13 +3,10 @@
 #include "stdafx.h"
 #include <math.h>
 #include <iostream>
-#include <ctime>
-
+#include <chrono>
 #include <vector>
-
-
 #include <algorithm>
-//#include "Image.h"
+
 //v0.1
 #include "ImageFilter/InvertFilter.h"
 #include "ImageFilter/AutoLevelFilter.h"
@@ -92,14 +89,6 @@
 
 using namespace std;
 using namespace imagefilter;
-
-//¥Ú”° ±º‰
-void printDateTime()
-{
-    time_t curtime = time(0); 
-	tm tim =*localtime(&curtime); 
-	std::cout<<tim.tm_year <<"-" << (tim.tm_mon + 1)<<"-"<<tim.tm_mday<<" "<<tim.tm_hour<<":"<<tim.tm_min<<":"<<tim.tm_sec<<std::endl; 
-}
 
 vector<IImageFilter*> LoadFilterVectorTest() {
 	vector<IImageFilter*> vectorFilter;
@@ -222,6 +211,28 @@ vector<IImageFilter*> LoadFilterVector() {
 	return vectorFilter;
 }
 
+class chrono_timer {
+
+public:
+	chrono_timer(int count, std::string name) {
+		start = std::chrono::system_clock::now();
+		this->count = count;
+		this->name = name;
+	}
+
+	~chrono_timer() {
+		std::chrono::duration<double> sec = std::chrono::system_clock::now() - start;
+		std::cout << "[" << count << "] ";
+		std::cout << name;
+		std::cout << "elapsed time " << sec.count() << " ms" << std::endl;
+	}
+
+private:
+	int count;
+	std::string name;
+	std::chrono::system_clock::time_point start;
+};
+
 void SaveImage(Image image, string savePath)
 {
 	CString outfilePath((CString)savePath.c_str());
@@ -232,27 +243,29 @@ void SaveImage(Image image, string savePath)
 	}
 	image.image->Destroy();
 	image.Destroy();
-	printDateTime();
 	//string s = "";char* p = (char*)s.c_str();cin>>p;
 }
 
 int main()
 {
 	int i = 0;
-	vector<IImageFilter*>::iterator it;
 
-#if 0
-	vector<IImageFilter*> vectorFilter = LoadFilterVector();
+#if 1
+	vector<IImageFilter*> v = LoadFilterVector();
 #else
-	vector<IImageFilter*> vectorFilter = LoadFilterVectorTest();
+	vector<IImageFilter*> v = LoadFilterVectorTest();
 #endif
 
 	char filePath[64];
-	for(it=vectorFilter.begin(); it!=vectorFilter.end(); it++){    
+	for(auto it : v){    
 		
 		Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
-		printDateTime();
-		image = (*it)->process(image);
+		
+		{
+			chrono_timer timer(i, it->get_type_id());
+			image = it->process(image);
+		}
+
 		sprintf(filePath, "d:\\filter\\%d.jpg", i);  
 		string filename(filePath);
     	SaveImage(image, filename);

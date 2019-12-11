@@ -82,6 +82,10 @@ public:
         offset = 1;
     }
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn)
 	{
 		int color;

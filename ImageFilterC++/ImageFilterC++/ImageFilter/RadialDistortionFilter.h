@@ -39,6 +39,10 @@ public:
 		Center = new Point(0.5f, 0.5f);
 	}
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
     virtual Image process(Image imageIn) {
         int r, g, b;
         int width = imageIn.getWidth();

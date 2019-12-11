@@ -35,6 +35,10 @@ public:
 
 		BrightContrastFilter():BrightnessFactor(0.25f), ContrastFactor(0){};
 
+        std::string get_type_id() {
+            return typeid(this).name();
+        }
+
         //@Override
         virtual Image process(Image imageIn)
         {

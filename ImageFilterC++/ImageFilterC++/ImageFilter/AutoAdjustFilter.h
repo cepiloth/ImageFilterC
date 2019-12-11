@@ -26,6 +26,11 @@ namespace imagefilter{
 
 class AutoAdjustFilter : public IImageFilter{
 public:
+
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image image) {
      	HistogramEqualFilter hee = new HistogramEqualFilter();
     	hee.ContrastIntensity = 0.5f;

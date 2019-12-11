@@ -30,6 +30,10 @@ public:
 	float SaturationFactor;
 	SaturationModifyFilter() : SaturationFactor(0.5f){};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		float saturation = SaturationFactor + 1;

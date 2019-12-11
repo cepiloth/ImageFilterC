@@ -81,6 +81,10 @@ public:
         return Color::rgb(crRet[0], crRet[1], crRet[2]) ;
     }
 	
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn)
 	{
 		  clone = imageIn.clone();

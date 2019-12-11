@@ -88,6 +88,10 @@ public:
 	float Intensity;
 	AutoLevelFilter(float intensity):Intensity(intensity){}
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn) {
 		int h[3][256];
 	    int _array[3];

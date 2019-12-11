@@ -51,6 +51,10 @@ private:
 public:
 	EdgeFilter(){};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
         int width = imageIn.getWidth();

@@ -38,6 +38,10 @@ public:
         _amount = LIB_PI / ((amount >= 1) ? amount : 1) ;
     }
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn)
 	{
 		double width = imageIn.getWidth();

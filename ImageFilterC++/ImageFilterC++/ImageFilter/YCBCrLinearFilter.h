@@ -210,6 +210,9 @@ public:
 		outCr = new Range(-0.5f, 0.5f);
     }
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
 
 	virtual Image process(Image imageIn)
 	{

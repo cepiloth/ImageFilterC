@@ -34,6 +34,10 @@ public:
 
 	SharpFilter(int step):_step(step) {};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		int height =imageIn.getHeight();

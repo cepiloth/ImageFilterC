@@ -54,6 +54,10 @@ public:
 		gradientFx.gradient = gradient;
 	};
 
+	std::string get_type_id() {
+		return typeid(this).name();
+	}
+
 	virtual Image process(Image imageIn)
 	{
        Image clone = gradientFx.process(imageIn.clone());

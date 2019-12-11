@@ -39,6 +39,10 @@ public:
         gaussianBlurFx.Sigma = nSigma; 
 	};
 
+    std::string get_type_id() {
+        return typeid(this).name();
+    }
+
 	virtual Image process(Image imageIn)
 	{
 		Image clone = imageIn.clone();
