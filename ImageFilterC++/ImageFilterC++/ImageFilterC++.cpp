@@ -215,20 +215,14 @@ vector<IImageFilter*> LoadFilterVector(){
 	return vectorFilter;
 }
 
-//加载各种滤镜
-vector<IImageFilter*> vectorFilter = LoadFilterVector();
-
-
-
 #ifdef WIN32
 //保存图片
 void SaveImage(Image image, string savePath)
 {
-	//输出处理后的图片	
 	CString outfilePath((CString)savePath.c_str());
 	HRESULT hresult = image.destImage->Save(outfilePath);
 	if(FAILED(hresult)){
-	   cout<<"文件保存失败";
+	   cout << "failed";
 	   return ;
 	}
 	image.image->Destroy();
@@ -254,12 +248,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	//开始处理图片
 	int i = 0;
 	vector<IImageFilter*>::iterator it;
+	vector<IImageFilter*> vectorFilter = LoadFilterVector();
+	Image image = imagefilter::Image::LoadImage("d:\\source.jpg");
 	char filePath[64];
 	for(it=vectorFilter.begin(); it!=vectorFilter.end(); it++){    
 		//加载图片
-	    Image image = imagefilter::Image::LoadImage("d:\\source.jpg");
+		Image effect = image.clone();
 		printDateTime();
-		image = (*it)->process(image);	
+		effect = (*it)->process(effect);
 		sprintf(filePath, "d:\\filter\\%d.jpg", i);  
 		string filename(filePath);
 #ifndef WIN32 //only for apple ios
