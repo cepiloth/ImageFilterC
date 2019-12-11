@@ -1,8 +1,10 @@
-https://github.com/daizhenjun/ImageFilterC fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
-============
+https://github.com/daizhenjun/ImageFilterC 
+======
+위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
+
 
 release compile 환경에서의 속도
-
+======
 [0] class imagefilter::InvertFilter *elapsed time 0.713674 ms
 
 [1] class imagefilter::AutoLevelFilter *elapsed time 0.689456 ms
