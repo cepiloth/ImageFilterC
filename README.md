@@ -1,7 +1,11 @@
 release compile 환경에서의 속도
+
 [0] class imagefilter::InvertFilter *elapsed time 0.713674 ms
+
 [1] class imagefilter::AutoLevelFilter *elapsed time 0.689456 ms
+
 [2] class imagefilter::RadialDistortionFilter *elapsed time 0.758788 ms
+
 [3] class imagefilter::BannerFilter *elapsed time 1.47926 ms
 [4] class imagefilter::BannerFilter *elapsed time 1.42751 ms
 [5] class imagefilter::BigBrotherFilter *elapsed time 0.687384 ms
