@@ -20,7 +20,7 @@
 
 #include "IImageFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class BrightContrastFilter : public IImageFilter{
 

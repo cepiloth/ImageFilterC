@@ -22,7 +22,7 @@
 #include "BilinearDistort.h"
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class WaveFilter : public BilinearDistort{
 

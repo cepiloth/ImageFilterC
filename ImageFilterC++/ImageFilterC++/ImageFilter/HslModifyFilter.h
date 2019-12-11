@@ -22,7 +22,7 @@
 #include "IImageFilter.h"
 #include "HslColor.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class HslModifyFilter : public IImageFilter{
 private:

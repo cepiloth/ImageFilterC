@@ -21,7 +21,7 @@
 #include "IImageFilter.h"
 #include "BrightContrastFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class LomoFilter : public IImageFilter{
 

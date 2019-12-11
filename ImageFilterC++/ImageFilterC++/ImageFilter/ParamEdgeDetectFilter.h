@@ -22,7 +22,7 @@
 #include "ConvolutionFilter.h"
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class ParamEdgeDetectFilter : public ConvolutionFilter{
 private:

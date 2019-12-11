@@ -26,7 +26,7 @@
 
 #include "ImageBlender.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class NightVisionFilter : public IImageFilter{
 

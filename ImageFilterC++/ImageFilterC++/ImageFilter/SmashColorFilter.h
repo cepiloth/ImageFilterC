@@ -22,7 +22,7 @@
 #include "ParamEdgeDetectFilter.h"
 #include "ImageBlender.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class SmashColorFilter : public IImageFilter{
 

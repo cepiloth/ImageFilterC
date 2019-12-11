@@ -22,7 +22,7 @@
 #include "GradientFilter.h"
 #include "GaussianBlurFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class FocusFilter : public GaussianBlurFilter{
 

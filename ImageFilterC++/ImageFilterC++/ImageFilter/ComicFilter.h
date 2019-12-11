@@ -25,7 +25,7 @@
 #include "ParamEdgeDetectFilter.h"
 #include "GaussianBlurFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class ComicFilter : public IImageFilter{
 

@@ -24,7 +24,7 @@
 #include "../NoiseFilter.h"
 #include "ITextureGenerator.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class LabyrinthTexture : public ITextureGenerator{
 private:

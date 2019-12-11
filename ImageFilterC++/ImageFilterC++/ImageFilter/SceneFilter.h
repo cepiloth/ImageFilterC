@@ -23,7 +23,7 @@
 #include "SaturationModifyFilter.h"
 #include "ImageBlender.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class SceneFilter : public IImageFilter{
 

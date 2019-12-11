@@ -23,7 +23,7 @@
 #if !defined(TexturerFilterH)
 #define TexturerFilterH
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 /// <summary>
 /// Texturer filter

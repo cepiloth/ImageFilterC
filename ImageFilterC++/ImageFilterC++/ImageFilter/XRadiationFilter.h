@@ -22,7 +22,7 @@
 #include "GradientMapFilter.h"
 #include "ImageBlender.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class XRadiationFilter : public IImageFilter{
 private:

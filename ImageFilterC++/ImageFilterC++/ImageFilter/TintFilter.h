@@ -22,7 +22,7 @@
 #include "GradientFilter.h"
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class TintFilter : public IImageFilter{
 

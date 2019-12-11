@@ -22,7 +22,7 @@
 #if !defined(BlockPrintFilter_H)
 #define BlockPrintFilter_H
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class BlockPrintFilter : public IImageFilter{
 public:

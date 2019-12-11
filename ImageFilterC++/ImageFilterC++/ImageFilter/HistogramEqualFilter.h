@@ -23,7 +23,7 @@
 #include <vector>
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class HistogramEqualFilter : public IImageFilter{
 public:

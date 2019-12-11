@@ -22,7 +22,7 @@
 
 #include "NoiseFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class OilPaintFilter : public IImageFilter{
 public:

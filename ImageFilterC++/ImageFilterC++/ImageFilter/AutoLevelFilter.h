@@ -26,7 +26,7 @@
 using namespace std;
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class AutoLevelFilter :  public IImageFilter{
 private:

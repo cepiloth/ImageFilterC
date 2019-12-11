@@ -21,7 +21,7 @@
 #include "IImageFilter.h"
 #include "ImageBlender.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class PaintBorderFilter : public IImageFilter{
 

@@ -27,7 +27,7 @@
 
 #define   LIB_PI   3.14159265358979323846
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class Point
 {

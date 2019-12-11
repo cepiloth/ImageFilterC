@@ -22,7 +22,7 @@
 #include "../Image.h"
 #include "../GradientFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class BilinearDistort : public IImageFilter{
 protected:

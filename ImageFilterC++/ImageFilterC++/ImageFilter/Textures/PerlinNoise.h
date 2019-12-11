@@ -21,7 +21,7 @@
 
 #include "../IImageFilter.h"
 
-namespace HaoRan_ImageFilter
+namespace imagefilter
 {
 	// http://www.student.kuleuven.ac.be/~m0216922/CG/perlinnoise.html
 	/// <summary>

@@ -25,7 +25,7 @@
 
 using namespace std;
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class BigBrotherFilter : public IImageFilter{
 

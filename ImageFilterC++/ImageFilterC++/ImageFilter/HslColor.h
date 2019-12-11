@@ -24,7 +24,7 @@
 #include "IImageFilter.h"
 #include "Image.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 class HslColor
 {
 

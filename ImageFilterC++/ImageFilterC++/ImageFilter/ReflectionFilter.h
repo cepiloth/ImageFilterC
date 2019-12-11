@@ -23,7 +23,7 @@
 #include "IImageFilter.h"
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class ReflectionFilter : public IImageFilter{
 

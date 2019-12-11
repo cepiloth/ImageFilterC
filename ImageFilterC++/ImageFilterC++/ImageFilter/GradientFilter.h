@@ -46,7 +46,7 @@ enum TintColors
 	Sepia = (255 << 24) | (230 << 16) | (179 << 8) | 179
 };
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class Palette
 {

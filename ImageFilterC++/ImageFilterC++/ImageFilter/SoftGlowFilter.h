@@ -22,7 +22,7 @@
 #include "BrightContrastFilter.h"
 #include "GaussianBlurFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class SoftGlowFilter : public IImageFilter{
 

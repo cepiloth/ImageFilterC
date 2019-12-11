@@ -21,7 +21,7 @@
 
 #include <vector>
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class ITextureGenerator{
 	

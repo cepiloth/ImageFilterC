@@ -22,7 +22,7 @@
 #include "IImageFilter.h"
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class FillPatternFilter : public IImageFilter{
 private:
@@ -32,13 +32,13 @@ public:
 
 	FillPatternFilter(std::string path)
 	{
-		pattern = HaoRan_ImageFilter::Image::LoadImage(path);
+		pattern = imagefilter::Image::LoadImage(path);
 		m_Mixture = 0.2f;
 	};
 
 	FillPatternFilter(std::string path, float mixture)
 	{
-		pattern = HaoRan_ImageFilter::Image::LoadImage(path);
+		pattern = imagefilter::Image::LoadImage(path);
 		m_Mixture = mixture;
 	};
 

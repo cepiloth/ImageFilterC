@@ -24,7 +24,7 @@
 #include "VignetteFilter.h"
 #include "GradientMapFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class OldPhotoFilter : public IImageFilter{
 

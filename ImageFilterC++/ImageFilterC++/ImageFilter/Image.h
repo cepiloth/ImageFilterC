@@ -25,7 +25,7 @@
 
 #define SAFECOLOR(color) min(255, max(0, color))
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class Image 
 {

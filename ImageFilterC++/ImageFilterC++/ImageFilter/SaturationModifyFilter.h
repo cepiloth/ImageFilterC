@@ -22,7 +22,7 @@
 #include "IImageFilter.h"
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class SaturationModifyFilter : public IImageFilter{
 

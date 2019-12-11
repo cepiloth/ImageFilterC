@@ -24,7 +24,7 @@
 
 using namespace std;
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class BannerFilter : public RadialDistortionFilter{
 public:

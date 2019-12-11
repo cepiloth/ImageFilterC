@@ -22,7 +22,7 @@
 #include "IImageFilter.h"
 #include "math.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class RadialDistortionFilter : public IImageFilter{
 

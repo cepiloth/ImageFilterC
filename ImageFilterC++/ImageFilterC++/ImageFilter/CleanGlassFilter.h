@@ -21,7 +21,7 @@
 #include "IImageFilter.h"
 #include "NoiseFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class CleanGlassFilter : public IImageFilter{
 

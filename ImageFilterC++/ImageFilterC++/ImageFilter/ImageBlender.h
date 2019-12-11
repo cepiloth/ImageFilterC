@@ -38,7 +38,7 @@ enum BlendMode{
 	    Frame = 12/*photo frame*/    
 };
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class ImageBlender {
 

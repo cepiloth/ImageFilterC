@@ -23,7 +23,7 @@
 #include <vector>
 
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class GradientMapFilter : public IImageFilter{
 public:

@@ -21,7 +21,7 @@
 
 #include "IImageFilter.h"
 
-namespace HaoRan_ImageFilter{
+namespace imagefilter{
 
 class FeatherFilter : public IImageFilter{
 
