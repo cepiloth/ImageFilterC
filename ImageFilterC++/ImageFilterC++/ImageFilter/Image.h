@@ -20,8 +20,7 @@
 #define Image_H
 
 #include "../stdafx.h"
-//typedef CImage UIImage;
-//typedef CString string;
+#include "Util/loader.h"
 
 #define SAFECOLOR(color) min(255, max(0, color))
 
@@ -319,10 +318,13 @@ public:
 		image->Destroy();
 		destImage->Destroy();
 	}
-
+#include "Util/loader.h"
 	static Image LoadImage(std::string imagePath){
 		CImage *cimage = new CImage;
 		CString filePath((CString)imagePath.c_str());
+        using namespace image::util;
+        gdiloader loader(imagePath);
+        loader.load();
 		HRESULT hresult = cimage->Load(filePath);
 		if(cimage->IsNull()){
 		   std::cout<<" failed load ";

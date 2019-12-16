@@ -159,6 +159,7 @@
     <ClInclude Include="ImageFilter\ThresholdFilter.h" />
     <ClInclude Include="ImageFilter\TileReflectionFilter.h" />
     <ClInclude Include="ImageFilter\TintFilter.h" />
+    <ClInclude Include="ImageFilter\Util\loader.h" />
     <ClInclude Include="ImageFilter\Util\Timer.h" />
     <ClInclude Include="ImageFilter\VideoFilter.h" />
     <ClInclude Include="ImageFilter\VignetteFilter.h" />
@@ -172,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImageFilterC++.cpp" />
+    <ClCompile Include="ImageFilter\Util\loader.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

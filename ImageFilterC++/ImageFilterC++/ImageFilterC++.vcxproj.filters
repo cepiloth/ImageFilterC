@@ -285,12 +285,18 @@
     <ClInclude Include="ImageFilter\Util\Timer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ImageFilter\Util\loader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ImageFilterC++.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFilter\Util\loader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

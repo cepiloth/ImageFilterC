@@ -159,14 +159,14 @@ vector<IImageFilter*> LoadFilterVector() {
 //v0.3
 	vectorFilter.push_back(new ZoomBlurFilter(30));
 	vectorFilter.push_back(new ThreeDGridFilter(16, 100));
-	vectorFilter.push_back(new ColorToneFilter(Color::rgb(254,168,33), 192));	
+	vectorFilter.push_back(new ColorToneFilter(imagefilter::Color::rgb(254,168,33), 192));
 	vectorFilter.push_back(new ColorToneFilter(0x00FF00, 192));	//green
 	vectorFilter.push_back(new ColorToneFilter(0x0000FF, 192));	//blue
 	vectorFilter.push_back(new ColorToneFilter(0xFFFF00, 192));	//yellow
 	vectorFilter.push_back(new SoftGlowFilter(10, 0.1, 0.1));	
 	vectorFilter.push_back(new TileReflectionFilter(20, 8));	
-	vectorFilter.push_back(new BlindFilter(true, 50, 50, Color::rgb(255,255,255)));	
-	vectorFilter.push_back(new BlindFilter(false, 40, 80, Color::rgb(0,0,0)));	
+	vectorFilter.push_back(new BlindFilter(true, 50, 50, imagefilter::Color::rgb(255,255,255)));
+	vectorFilter.push_back(new BlindFilter(false, 40, 80, imagefilter::Color::rgb(0,0,0)));
 	vectorFilter.push_back(new RaiseFrameFilter(20));	
 	vectorFilter.push_back(new ShiftFilter(10));	
 	vectorFilter.push_back(new WaveFilter(25, 10));	
@@ -211,7 +211,7 @@ vector<IImageFilter*> LoadFilterVector() {
 	return vectorFilter;
 }
 
-void SaveImage(Image image, string savePath, bool save = true)
+void SaveImage(imagefilter::Image image, string savePath, bool save = true)
 {
 	if(true) {
 		CString outfilePath((CString)savePath.c_str());
@@ -239,8 +239,8 @@ int main()
 	char filePath[64];
 	for(auto it : v){    
 		
-		Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
-		//Image image = imagefilter::Image::LoadImage("d:\\png.png");
+		imagefilter::Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
+		//imagefilter::Image image = imagefilter::Image::LoadImage("d:\\png.png");
 		
 		{
 			image::util::chrono_timer timer(i, it->get_type_id());

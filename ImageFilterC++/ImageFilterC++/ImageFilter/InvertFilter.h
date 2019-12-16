@@ -41,7 +41,7 @@ public:
           {
               for (int x = 0; x < imageIn.getWidth(); x++)
               {
-                  for (int y = 0; y < imageIn.getHeight(); y++)
+                  for (int y = 0; y < imageIn.getHeight() - 1; y++)
                   {
                       a = imageIn.getAComponent(x, y);
                       r = 255 - imageIn.getRComponent(x, y) * a / 255;
@@ -55,7 +55,7 @@ public:
           {
               for (int x = 0; x < imageIn.getWidth(); x++)
               {
-                  for (int y = 0; y < imageIn.getHeight(); y++)
+                  for (int y = 0; y < imageIn.getHeight()-1; y++)
                   {
                       r = 255 - imageIn.getRComponent(x, y);
                       g = 255 - imageIn.getGComponent(x, y);
