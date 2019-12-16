@@ -282,6 +282,9 @@
     <ClInclude Include="ImageFilter\HslModifyFilter.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ImageFilter\Util\Timer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

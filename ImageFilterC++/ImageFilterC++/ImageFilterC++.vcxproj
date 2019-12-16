@@ -159,6 +159,7 @@
     <ClInclude Include="ImageFilter\ThresholdFilter.h" />
     <ClInclude Include="ImageFilter\TileReflectionFilter.h" />
     <ClInclude Include="ImageFilter\TintFilter.h" />
+    <ClInclude Include="ImageFilter\Util\Timer.h" />
     <ClInclude Include="ImageFilter\VideoFilter.h" />
     <ClInclude Include="ImageFilter\VignetteFilter.h" />
     <ClInclude Include="ImageFilter\VintageFilter.h" />

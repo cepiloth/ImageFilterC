@@ -3,7 +3,6 @@
 #include "stdafx.h"
 #include <math.h>
 #include <iostream>
-#include <chrono>
 #include <vector>
 #include <algorithm>
 
@@ -86,6 +85,7 @@
 #include "ImageFilter/Textures\WoodTexture.h"
 #include "ImageFilter/HslModifyFilter.h"
 
+#include "ImageFilter/Util/Timer.h"
 
 using namespace std;
 using namespace imagefilter;
@@ -211,28 +211,6 @@ vector<IImageFilter*> LoadFilterVector() {
 	return vectorFilter;
 }
 
-class chrono_timer {
-
-public:
-	chrono_timer(int count, std::string name) {
-		start = std::chrono::system_clock::now();
-		this->count = count;
-		this->name = name;
-	}
-
-	~chrono_timer() {
-		std::chrono::duration<double> sec = std::chrono::system_clock::now() - start;
-		std::cout << "[" << count << "] ";
-		std::cout << name;
-		std::cout << "elapsed time " << sec.count() << " ms" << std::endl;
-	}
-
-private:
-	int count;
-	std::string name;
-	std::chrono::system_clock::time_point start;
-};
-
 void SaveImage(Image image, string savePath, bool save = true)
 {
 	if(true) {
@@ -265,7 +243,7 @@ int main()
 		//Image image = imagefilter::Image::LoadImage("d:\\png.png");
 		
 		{
-			chrono_timer timer(i, it->get_type_id());
+			image::util::chrono_timer timer(i, it->get_type_id());
 			image = it->process(image);
 		}
 
