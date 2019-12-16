@@ -84,8 +84,8 @@ public:
 			_pt.x = imageIn.getWidth() /2;
 			_pt.y = imageIn.getHeight() /2;
 		}
-		  for(int x = 0 ; x < (imageIn.getWidth() - 1) ; x++){
-			  for(int y = 0 ; y < (imageIn.getHeight() - 1) ; y++){
+		  for(int x = 0 ; x < (imageIn.getWidth()) ; x++){
+			  for(int y = 0 ; y < (imageIn.getHeight()) ; y++){
 				std::vector<int> pixel(3);
 				pixel[0] = imageIn.getRComponent(x, y);
 				pixel[1] =  imageIn.getGComponent(x, y);

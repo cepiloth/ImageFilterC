@@ -50,8 +50,8 @@ public:
         imageIn = contrastFx.process(imageIn);
          
 		int old_r, old_g, old_b, r, g, b;
-		for(int x = 0 ; x < (imageIn.getWidth() - 1) ; x++){
-			for(int y = 0 ; y < (imageIn.getHeight() - 1) ; y++){
+		for(int x = 0 ; x < (imageIn.getWidth()) ; x++){
+			for(int y = 0 ; y < (imageIn.getHeight()) ; y++){
 				   old_r = clone.getRComponent(x, y);
 				   old_g = clone.getGComponent(x, y);
 				   old_b = clone.getBComponent(x, y);

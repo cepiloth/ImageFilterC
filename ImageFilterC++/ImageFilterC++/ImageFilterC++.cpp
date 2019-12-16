@@ -233,13 +233,15 @@ private:
 	std::chrono::system_clock::time_point start;
 };
 
-void SaveImage(Image image, string savePath)
+void SaveImage(Image image, string savePath, bool save = true)
 {
-	CString outfilePath((CString)savePath.c_str());
-	HRESULT hresult = image.destImage->Save(outfilePath);
-	if(FAILED(hresult)){
-	   cout << "failed";
-	   return ;
+	if(true) {
+		CString outfilePath((CString)savePath.c_str());
+		HRESULT hresult = image.destImage->Save(outfilePath);
+		if(FAILED(hresult)){
+		   cout << "failed";
+		   return ;
+		}
 	}
 	image.image->Destroy();
 	image.Destroy();
@@ -259,8 +261,8 @@ int main()
 	char filePath[64];
 	for(auto it : v){    
 		
-		//Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
-		Image image = imagefilter::Image::LoadImage("d:\\png.png");
+		Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
+		//Image image = imagefilter::Image::LoadImage("d:\\png.png");
 		
 		{
 			chrono_timer timer(i, it->get_type_id());
@@ -275,7 +277,7 @@ int main()
 		}
 
 		string filename(filePath);
-    	SaveImage(image, filename);
+    	SaveImage(image, filename, false);
 		i++;
     }
 

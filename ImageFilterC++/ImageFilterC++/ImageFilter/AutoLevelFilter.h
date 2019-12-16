@@ -101,8 +101,8 @@ public:
 	    int rr[256];
 	    int intensity = (int)(Intensity * 255);
 	    int intensity_invert = 255 - intensity;
-	    for (int x = 0; x < imageIn.getWidth() - 1; x++){ 
-			 for (int y = 0; y < imageIn.getHeight() - 1; y++)  {
+	    for (int x = 0; x < imageIn.getWidth(); x++){ 
+			 for (int y = 0; y < imageIn.getHeight(); y++)  {
 	   			  h[0][imageIn.getRComponent(x, y)]++;
 	  	          h[1][imageIn.getGComponent(x, y)]++;
 	  	          h[2][imageIn.getBComponent(x, y)]++;
@@ -135,8 +135,8 @@ public:
 	    }
 	    Image clone = imageIn.clone();
 	    int r,g,b;
-	    for (int x = 0; x < imageIn.getWidth() - 1; x++){
-  			 for (int y = 0; y < imageIn.getHeight() - 1; y++)  {  
+	    for (int x = 0; x < imageIn.getWidth(); x++){
+  			 for (int y = 0; y < imageIn.getHeight(); y++)  {  
   				r = imageIn.getRComponent(x, y);
   				g = imageIn.getGComponent(x, y);
   				b = imageIn.getBComponent(x, y);

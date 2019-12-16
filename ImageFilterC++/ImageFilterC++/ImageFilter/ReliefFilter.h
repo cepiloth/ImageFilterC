@@ -36,7 +36,7 @@ public:
 
 	virtual Image process(Image imageIn)
 	{
-		for (int x = 0; x < (imageIn.getWidth() - 1); x++) {
+		for (int x = 0; x < (imageIn.getWidth()); x++) {
 	        for (int y = 0; y < imageIn.getHeight(); y++) {
 		        int rr = imageIn.getRComponent(x, y) - imageIn.getRComponent(x + 1, y) + 128;
 		        int gg = imageIn.getGComponent(x, y) - imageIn.getGComponent(x + 1, y) + 128; 

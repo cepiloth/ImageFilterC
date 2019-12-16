@@ -250,8 +250,8 @@ private:
         _halo.r  = 80.0/255.0;  _halo.g  = 15.0/255.0;  _halo.b  = 4.0/255.0;
 
         initref (_point.x, _point.y, imageIn.getWidth(), imageIn.getHeight(), matt) ;
-		  for(int x = 0 ; x < (imageIn.getWidth() - 1) ; x++){
-			  for(int y = 0 ; y < (imageIn.getHeight() - 1) ; y++){
+		  for(int x = 0 ; x < (imageIn.getWidth()) ; x++){
+			  for(int y = 0 ; y < (imageIn.getHeight()) ; y++){
 				    double   hyp = FHypot (x-_point.x, y-_point.y) ;
 					Color color(imageIn.getPixelColor(x, y));
 					color = mcolor (color, hyp); /* make color */

@@ -50,8 +50,8 @@ public:
 	virtual Image process(Image imageIn)
 	{
 		  int r, g, b, a;
-		  for(int x = 0 ; x < (imageIn.getWidth() - 1) ; x++){
-			  for(int y = 0 ; y < (imageIn.getHeight() - 1) ; y++){
+		  for(int x = 0 ; x < (imageIn.getWidth()) ; x++){
+			  for(int y = 0 ; y < (imageIn.getHeight()) ; y++){
 				r = imageIn.getRComponent(x, y);
 				g = imageIn.getGComponent(x, y);
 				b = imageIn.getBComponent(x, y);
