@@ -259,14 +259,21 @@ int main()
 	char filePath[64];
 	for(auto it : v){    
 		
-		Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
+		//Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
+		Image image = imagefilter::Image::LoadImage("d:\\png.png");
 		
 		{
 			chrono_timer timer(i, it->get_type_id());
 			image = it->process(image);
 		}
 
-		sprintf(filePath, "d:\\filter\\%d.jpg", i);  
+		if (image.GetBPP() == 32) {
+			sprintf(filePath, "d:\\filter\\%d.png", i);
+		}
+		else {
+			sprintf(filePath, "d:\\filter\\%d.jpg", i);
+		}
+
 		string filename(filePath);
     	SaveImage(image, filename);
 		i++;

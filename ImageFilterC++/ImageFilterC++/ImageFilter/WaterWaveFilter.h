@@ -30,8 +30,8 @@ private:
 	int height;
 	vector<short> buf2;
 	vector<short> buf1;
-	int *temp;
-	int *source;
+	unsigned int *temp;
+	unsigned int *source;
 
 public:
 
@@ -102,7 +102,7 @@ public:
     	buf2.resize(width*height);
 		buf1.resize(width*height);
 	    source = imageIn.colorArray;
-	    temp = new int[width*height];
+	    temp = new unsigned int[width*height];
 	    DropStone(width/2, height/2, max(width, height)/4, max(width, height));
 		for(int i = 0 ; i < 170; i++){
 			RippleSpread();

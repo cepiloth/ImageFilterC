@@ -37,10 +37,14 @@ public:
 	//format of image (jpg/png)
     CString formatName;
 	 // RGB Array Color
-	int* colorArray;
+	unsigned int* colorArray;
 
 public:
     
+    int GetBPP() const {
+        return image->GetBPP();
+    }
+
 	//original bitmap image
     CImage* image;
     CImage* destImage;
@@ -50,7 +54,13 @@ public:
 	//dimensions of image 
     Image(CImage *img){                
         image =  img;
-        formatName = "jpg";
+
+        if (image->GetBPP() == 32) {
+            formatName = "png";
+        } else {
+            formatName = "jpg";
+        }
+
         width = img->GetWidth();
         height = img->GetHeight();
 		CImage *dest(img);
@@ -81,22 +91,45 @@ public:
      * @param bitmap
      */
     void updateColorArray(){
-        colorArray = new int[width * height];
-        int r, g, b;
+        colorArray = new unsigned int[width * height];
+        int r, g, b, a;
         int index = 0;
-		BYTE* rgb; 
-		for(int y = 0 ; y < (image->GetHeight() - 1); y++){
-		    for(int x = 0 ; x < (image->GetWidth() - 1); x++){
-				  int index = y * width + x;
-				   rgb = (BYTE*) image->GetPixelAddress(x, y);
-				   r = SAFECOLOR(rgb[2]);
-				   g = SAFECOLOR(rgb[1]);
-				   b = SAFECOLOR(rgb[0]);
-				   int rgbcolor = (r << 16) | (g << 8) | b;
-				   colorArray[index] = (r << 16) | (g << 8) | b;   
-				   index++;	  
-			  }
-		 }
+
+        if (image->GetBPP() == 32) {
+            BYTE* rgba;
+            for (int y = 0; y < image->GetHeight(); y++)
+            {
+                for (int x = 0; x < image->GetWidth(); x++)
+                {
+                    int index = y * width + x;
+                    rgba = (BYTE*)image->GetPixelAddress(x, y);
+                    a = SAFECOLOR(rgba[3]);
+                    r = SAFECOLOR(rgba[2]);
+                    g = SAFECOLOR(rgba[1]);
+                    b = SAFECOLOR(rgba[0]);
+                    int rgbcolor = (a << 24) | (r << 16) | (g << 8) | b;
+                    colorArray[index] = rgbcolor;
+                    index++;
+                }
+            }
+        }
+        else {
+            BYTE* rgb;
+            for (int y = 0; y < image->GetHeight(); y++) 
+            {
+                for (int x = 0; x < image->GetWidth(); x++) 
+                {
+                    int index = y * width + x;
+                    rgb = (BYTE*)image->GetPixelAddress(x, y);
+                    r = SAFECOLOR(rgb[2]);
+                    g = SAFECOLOR(rgb[1]);
+                    b = SAFECOLOR(rgb[0]);
+                    int rgbcolor = (r << 16) | (g << 8) | b;
+                    colorArray[index] = rgbcolor;
+                    index++;
+                }
+            }
+        }
     }
     
     /**
@@ -152,6 +185,17 @@ public:
 		 }
     }
     
+    /**
+     * Method to get the ALPHA color for the specified
+     * pixel
+     * @param x
+     * @param y
+     * @return color of A
+    */
+    int getAComponent(int x, int y) {
+        return (colorArray[((y * width + x))] & 0xFF000000) >> 24;
+    }
+
     /**
      * Method to get the RED color for the specified 
      * pixel 
@@ -257,7 +301,7 @@ public:
     /**
      * @return the colorArray
      */
-    int* getColorArray() {
+    unsigned int* getColorArray() {
         return colorArray;
     }
 
@@ -265,7 +309,7 @@ public:
     /**
      * @param colorArray the colorArray to set
      */
-    void setColorArray(int colors[]) {
+    void setColorArray(unsigned int colors[]) {
         colorArray = colors;
     }
 
