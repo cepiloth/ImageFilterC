@@ -6,7 +6,7 @@ https://github.com/daizhenjun/ImageFilterC
 
 | Tool          | Method                 | Throuput    | Description |
 |---------------|------------------------|-------------|-------------|
-| ![이미지](./ImageFilterC/sample0.jpg) | InvertFilter           | 0.106086 ms |  |
+| ![이미지](./ImageFilterC/sample/sample0.jpg) | InvertFilter           | 0.106086 ms |  |
 | sample/1.jpg  | AutoLevelFilter        | 0.197569 ms |  |
 | sample/2.jpg  | RadialDistortionFilter | 0.192900 ms |  |
 | sample/3.jpg  | BannerFilter           | 0.288723 ms |  |
