@@ -2,9 +2,9 @@
 https://github.com/daizhenjun/ImageFilterC 
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
-### Converters, Importers, and Exporters
+### Preview
 
-| Tool          | Method                 | Throuput    | Description |
+| Result Effect | Method                 | Throuput    | Description |
 |---------------|------------------------|-------------|-------------|
 | ![이미지](./ImageFilterC%2B%2B/sample/0.png) | InvertFilter           | 0.106086 ms |  |
 | ![이미지](./ImageFilterC%2B%2B/sample/1.png) | AutoLevelFilter        | 0.197569 ms |  |
