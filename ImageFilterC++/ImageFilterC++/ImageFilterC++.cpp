@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <assert.h>
 
 //v0.1
 #include "ImageFilter/InvertFilter.h"
@@ -87,9 +88,10 @@
 
 #include "ImageFilter/Util/Timer.h"
 #include "ImageFilter/Util/gdiplusencoder.h"
+using namespace imagefilter;
 using namespace image::util;
 using namespace std;
-using namespace imagefilter;
+
 
 vector<IImageFilter*> LoadFilterVectorTest() {
 	vector<IImageFilter*> vectorFilter;
@@ -226,9 +228,9 @@ int main()
 	char filePath[64];
 	for(auto it : v){    
 		
-		imagefilter::Image image = imagefilter::Image::LoadImage("d:\\bonobono.jpg");
+		imagefilter::Image image = imagefilter::Image::LoadImage("d:\\Lenna.png");
 		//imagefilter::Image image = imagefilter::Image::LoadImage("d:\\png.png");
-		
+
 		{
 			image::util::chrono_timer timer(i, it->get_type_id());
 			image = it->process(image);

@@ -21,6 +21,8 @@
 
 #include "../stdafx.h"
 #include "Util/gdiplusdecoder.h"
+#include "Util/gdiplusdecoder.h"
+using namespace image::util;
 
 #define SAFECOLOR(color) min(255, max(0, color))
 
@@ -51,7 +53,12 @@ public:
 	Image(){}; 
 
 	//dimensions of image 
-    Image(Gdiplus::Bitmap *img){                
+    Image(Gdiplus::Bitmap *img){        
+        
+        if (NULL == img) {
+            return;
+        }
+        
         image =  img;
 
         Gdiplus::PixelFormat format = image->GetPixelFormat();
@@ -307,12 +314,13 @@ public:
 	{
 		delete[] colorArray;
 	}
-#include "Util/gdiplusdecoder.h"
-	static Image LoadImage(std::string imagePath){
-		CString filePath((CString)imagePath.c_str());
-        using namespace image::util;
-        gdiplusdecoder loader(imagePath);
-        Gdiplus::Bitmap* bitmap = loader.load();
+
+	static Image LoadImage(const string& path){
+		
+        Gdiplus::Bitmap* bitmap = gdiplusdecoder::loadImage(path);
+        if (NULL == bitmap) {
+            return NULL;
+        }
 		Image image = bitmap;
 		return image;
 	}

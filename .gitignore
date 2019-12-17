@@ -59,3 +59,7 @@ ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/3c0f108896ec7f80/GDIPLUSENCOD
 ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/787e80ed7f060771/GDIPLUSDECODER.ipch
 ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/d06e00d6a57da711/GDIPLUSBASE.ipch
 *.ipch
+*.exe
+*.log
+*.txt
+*.log

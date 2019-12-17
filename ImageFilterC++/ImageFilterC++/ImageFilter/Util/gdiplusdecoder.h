@@ -15,6 +15,12 @@ namespace util
 		gdiplusdecoder(const string& name);
 		~gdiplusdecoder();
 
+		static Gdiplus::Bitmap* loadImage(const string& name) {
+			gdiplusdecoder decoder(name);
+			return decoder.load();
+		}
+
+	protected:
 		Gdiplus::Bitmap* load();
 
 	private:
