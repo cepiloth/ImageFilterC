@@ -2,17 +2,17 @@
  > https://github.com/daizhenjun/ImageFilterC <br>
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
-### OverView Lenna
+## OverView Lenna
 > https://en.wikipedia.org/wiki/Lenna <br>
 Lenna 이미지 사용
 <center><img src="./ImageFilterC%2B%2B/sample/overview_lenna.jpg"></center>
 
-### OverView Lenna
+## OverView Lenna
 > https://en.wikipedia.org/wiki/Earth <br>
 지구 이미지 사용
 <center><img src="./ImageFilterC%2B%2B/sample/overview_earth.jpg"></center>
 
-#### Preview
+## Preview
 > 512x512 크기의 Lenna 이미지를 사용하고 이미지 효과를 적용한 처리 속도 입니다.
 
 | Result Effect | Method                 | Throuput    | Description |
@@ -120,3 +120,12 @@ Lenna 이미지 사용
 | ![이미지](./ImageFilterC%2B%2B/sample/100.png)| HslModifyFilter	     | 0.115403 ms |  |
 | ![이미지](./ImageFilterC%2B%2B/sample/101.png)|HslModifyFilter	     | 0.105351 ms |  |
 
+## Development Environment
+1. CPU Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+2. RAM 24.0gb
+3. SYSTEM x64
+4. Window 10
+5. Visual Studio 2019
+
+## License
+> via https://github.com/daizhenjun/ImageFilterC 
