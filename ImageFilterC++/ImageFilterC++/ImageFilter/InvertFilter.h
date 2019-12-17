@@ -43,9 +43,9 @@ public:
               {
                   for (int x = 0; x < imageIn.getWidth(); x++)
                   {
-                      r = ~imageIn.getRComponent(x, y);
-                      g = ~imageIn.getGComponent(x, y);
-                      b = ~imageIn.getBComponent(x, y);
+                      r = 255 - imageIn.getRComponent(x, y);
+                      g = 255 - imageIn.getGComponent(x, y);
+                      b = 255 - imageIn.getBComponent(x, y);
                       imageIn.setPixelColor(x, y, r, g, b);
                   }
               }
