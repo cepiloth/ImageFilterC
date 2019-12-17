@@ -1,13 +1,13 @@
-#### motivation
+## Motivation
  > https://github.com/daizhenjun/ImageFilterC <br>
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
-#### OverView Lenna
+### OverView Lenna
 <center>
 ![레나 이미지](./ImageFilterC%2B%2B/sample/overview_lenna.jpg)
 </center>
 
-#### OverView Lenna
+### OverView Lenna
 <center>
 ![지구 이미지](./ImageFilterC%2B%2B/sample/overview_earth.jpg)
 </center>
