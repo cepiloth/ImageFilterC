@@ -39,21 +39,16 @@ public:
 		  int r, g, b, a;
           if (imageIn.GetPixelFormat() == 32) 
           {
-              unsigned int * newbuffer = new unsigned int[imageIn.getWidth() * imageIn.getHeight()];
-              memset(newbuffer, 0, imageIn.getWidth() * imageIn.getHeight() * sizeof(int));
               for (int y = 0; y < imageIn.getHeight(); y++)
               {
                   for (int x = 0; x < imageIn.getWidth(); x++)
                   {
-                      a = imageIn.getAComponent(x, y);
-                      r = 255 - imageIn.getRComponent(x, y) * a / 255;
-                      g = 255 - imageIn.getGComponent(x, y) * a / 255;
-                      b = 255 - imageIn.getBComponent(x, y) * a / 255;
-                      newbuffer[x * imageIn.getWidth() + y] = Gdiplus::Color::MakeARGB(a, r, g, b);
+                      r = ~imageIn.getRComponent(x, y);
+                      g = ~imageIn.getGComponent(x, y);
+                      b = ~imageIn.getBComponent(x, y);
+                      imageIn.setPixelColor(x, y, r, g, b);
                   }
               }
-
-              imageIn.setColorArray(newbuffer);
           }
           else 
           {
