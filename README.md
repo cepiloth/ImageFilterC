@@ -6,4 +6,4 @@ https://github.com/daizhenjun/ImageFilterC
 
 | Tool | Input | Output | Description |
 |------|-------|--------|-------------|
-|0.jpg |
+| sample/0.jpg |
