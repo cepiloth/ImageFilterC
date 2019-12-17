@@ -2,7 +2,7 @@
 https://github.com/daizhenjun/ImageFilterC 
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
-### effect result
+### Converters, Importers, and Exporters
 
 | Tool          | Method                 | Throuput    | Description |
 |---------------|------------------------|-------------|-------------|
