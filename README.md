@@ -3,11 +3,11 @@
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
 ### OverView Lenna
-![레나 이미지](./ImageFilterC%2B%2B/sample/overview_lenna.jpg)
+![레나 이미지](./ImageFilterC%2B%2B/sample/overview_lenna.jpg){:.aligncenter}
 
 
 ### OverView Lenna
-![지구 이미지](./ImageFilterC%2B%2B/sample/overview_earth.jpg)
+![지구 이미지](./ImageFilterC%2B%2B/sample/overview_earth.jpg){:.aligncenter}
 
 #### Preview
 
