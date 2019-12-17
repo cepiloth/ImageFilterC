@@ -1,4 +1,4 @@
-#include "loader.h"
+#include "gdiplusdecoder.h"
 
 namespace image
 {
@@ -6,12 +6,11 @@ namespace image
 namespace util
 {
 
-	gdiloader::gdiloader(const string& name) {
+	gdiplusdecoder::gdiplusdecoder(const string& name) {
 		filename = name;
-		Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 	}
 
-	bool gdiloader::load() {
+	Gdiplus::Bitmap* gdiplusdecoder::load() {
 
 #ifdef UNICODE
 		std::wstring filename_w;
@@ -20,10 +19,14 @@ namespace util
 #else
 		Gdiplus::Bitmap* bitmap = Gdiplus::Bitmap::FromFile(filename);
 #endif
-		if (bitmap == NULL)
+
+		if (bitmap == NULL) {
 			return FALSE;
-		if (Gdiplus::Ok != bitmap->GetLastStatus())
+		}
+
+		if (Gdiplus::Ok != bitmap->GetLastStatus()) {
 			return FALSE;
+		}
 
 		Gdiplus::BitmapData bitmapData;
 		Gdiplus::Rect rect(0, 0, bitmap->GetWidth(), bitmap->GetHeight());
@@ -53,11 +56,13 @@ namespace util
 			bitmap->UnlockBits(&bitmapData);
 			delete[]buffer;
 		}
+		return bitmap;
 	}
 
-	gdiloader::~gdiloader() {
-		GdiplusShutdown(gdiplusToken);
+	gdiplusdecoder::~gdiplusdecoder() {
+		
 	}
 
 }
+
 }

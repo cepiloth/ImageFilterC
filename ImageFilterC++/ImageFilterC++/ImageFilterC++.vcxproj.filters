@@ -285,7 +285,13 @@
     <ClInclude Include="ImageFilter\Util\Timer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ImageFilter\Util\loader.h">
+    <ClInclude Include="ImageFilter\Util\gdiplusbase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFilter\Util\gdiplusdecoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFilter\Util\gdiplusencoder.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -296,7 +302,10 @@
     <ClCompile Include="ImageFilterC++.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImageFilter\Util\loader.cpp">
+    <ClCompile Include="ImageFilter\Util\gdiplusdecoder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFilter\Util\gdiplusencoder.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

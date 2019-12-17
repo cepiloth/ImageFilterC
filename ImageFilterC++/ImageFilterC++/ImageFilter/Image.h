@@ -20,7 +20,7 @@
 #define Image_H
 
 #include "../stdafx.h"
-#include "Util/loader.h"
+#include "Util/gdiplusdecoder.h"
 
 #define SAFECOLOR(color) min(255, max(0, color))
 
@@ -30,7 +30,7 @@ class Image
 {
 private:
 	int width, height;
-
+    int bitcount;
 public:
 	 
 	//format of image (jpg/png)
@@ -40,29 +40,38 @@ public:
 
 public:
     
-    int GetBPP() const {
-        return image->GetBPP();
+    int GetPixelFormat() const {
+        return bitcount;
     }
 
 	//original bitmap image
-    CImage* image;
-    CImage* destImage;
+    Gdiplus::Bitmap* image;
+    Gdiplus::Bitmap* destImage;
    
 	Image(){}; 
 
 	//dimensions of image 
-    Image(CImage *img){                
+    Image(Gdiplus::Bitmap *img){                
         image =  img;
 
-        if (image->GetBPP() == 32) {
+        Gdiplus::PixelFormat format = image->GetPixelFormat();
+
+        switch (format) {
+        case PixelFormat32bppARGB:
+        case PixelFormat32bppPARGB:
+        case PixelFormat32bppRGB:
+            bitcount = 32;
             formatName = "png";
-        } else {
+            break;
+        default:
+            bitcount = 24;
             formatName = "jpg";
+            break;
         }
 
         width = img->GetWidth();
         height = img->GetHeight();
-		CImage *dest(img);
+        Gdiplus::Bitmap* dest = img->Clone(0, 0, img->GetWidth(), img->GetHeight(), format);
 	    destImage = dest;
         updateColorArray();
     };
@@ -91,44 +100,21 @@ public:
      */
     void updateColorArray(){
         colorArray = new unsigned int[width * height];
-        int r, g, b, a;
         int index = 0;
 
-        if (image->GetBPP() == 32) {
-            BYTE* rgba;
-            for (int y = 0; y < image->GetHeight(); y++)
+        for (int y = 0; y < image->GetHeight(); y++)
             {
                 for (int x = 0; x < image->GetWidth(); x++)
                 {
                     int index = y * width + x;
-                    rgba = (BYTE*)image->GetPixelAddress(x, y);
-                    a = SAFECOLOR(rgba[3]);
-                    r = SAFECOLOR(rgba[2]);
-                    g = SAFECOLOR(rgba[1]);
-                    b = SAFECOLOR(rgba[0]);
-                    int rgbcolor = (a << 24) | (r << 16) | (g << 8) | b;
+                    Gdiplus::Color color;
+                    image->GetPixel(x, y, &color);
+                    
+                    unsigned int rgbcolor = color.GetValue();
                     colorArray[index] = rgbcolor;
                     index++;
                 }
-            }
-        }
-        else {
-            BYTE* rgb;
-            for (int y = 0; y < image->GetHeight(); y++) 
-            {
-                for (int x = 0; x < image->GetWidth(); x++) 
-                {
-                    int index = y * width + x;
-                    rgb = (BYTE*)image->GetPixelAddress(x, y);
-                    r = SAFECOLOR(rgb[2]);
-                    g = SAFECOLOR(rgb[1]);
-                    b = SAFECOLOR(rgb[0]);
-                    int rgbcolor = (r << 16) | (g << 8) | b;
-                    colorArray[index] = rgbcolor;
-                    index++;
-                }
-            }
-        }
+            }       
     }
     
     /**
@@ -140,10 +126,11 @@ public:
      */
     void setPixelColor(int x, int y, int color){
 		colorArray[((y * width+x))] = color;
-		BYTE r  = (0xFF0000 &color) >> 16;
-		BYTE g  = (0x00FF00 &color) >> 8;
-		BYTE b  = 0x0000FF &color;
-		destImage->SetPixelRGB(x, y, r, g, b);
+		BYTE r  = (0xFF0000 & color) >> 16;
+		BYTE g  = (0x00FF00 & color) >> 8;
+		BYTE b  = (0x0000FF & color);
+        Gdiplus::Color pixel(r, g, b);
+		destImage->SetPixel(x, y, pixel);
     }
     
 
@@ -169,7 +156,8 @@ public:
      */
     void setPixelColor(int x, int y, int r, int g, int b){
 		colorArray[((y * width+x))] = (255 << 24) + (r << 16) + (g << 8) + b;
-		destImage->SetPixelRGB(x, y, r, g, b);
+        Gdiplus::Color pixel(colorArray[((y * width + x))]);
+        destImage->SetPixel(x, y, pixel);
     }
 
     
@@ -235,7 +223,7 @@ public:
     /**
      * @return the image
      */
-    CImage* getImage() {
+    Gdiplus::Bitmap* getImage() {
         //return image;
     	return destImage;
     }
@@ -244,7 +232,7 @@ public:
     /**
      * @param image the image to set
      */
-    void setImage(CImage *img) {
+    void setImage(Gdiplus::Bitmap *img) {
         image = img;
     }
 
@@ -309,28 +297,23 @@ public:
      * @param colorArray the colorArray to set
      */
     void setColorArray(unsigned int colors[]) {
+        if (colorArray) {
+            delete[] colorArray;
+        }
         colorArray = colors;
     }
 
 	void Destroy()
 	{
-		delete colorArray;
-		image->Destroy();
-		destImage->Destroy();
+		delete[] colorArray;
 	}
-#include "Util/loader.h"
+#include "Util/gdiplusdecoder.h"
 	static Image LoadImage(std::string imagePath){
-		CImage *cimage = new CImage;
 		CString filePath((CString)imagePath.c_str());
         using namespace image::util;
-        gdiloader loader(imagePath);
-        loader.load();
-		HRESULT hresult = cimage->Load(filePath);
-		if(cimage->IsNull()){
-		   std::cout<<" failed load ";
-		   return 0;
-		}
-		Image image(cimage);
+        gdiplusdecoder loader(imagePath);
+        Gdiplus::Bitmap* bitmap = loader.load();
+		Image image = bitmap;
 		return image;
 	}
 };

@@ -37,19 +37,23 @@ public:
 	virtual Image process(Image imageIn)
 	{
 		  int r, g, b, a;
-          if (imageIn.GetBPP() == 32) 
+          if (imageIn.GetPixelFormat() == 32) 
           {
-              for (int x = 0; x < imageIn.getWidth(); x++)
+              unsigned int * newbuffer = new unsigned int[imageIn.getWidth() * imageIn.getHeight()];
+              memset(newbuffer, 0, imageIn.getWidth() * imageIn.getHeight() * sizeof(int));
+              for (int y = 0; y < imageIn.getHeight(); y++)
               {
-                  for (int y = 0; y < imageIn.getHeight() - 1; y++)
+                  for (int x = 0; x < imageIn.getWidth(); x++)
                   {
                       a = imageIn.getAComponent(x, y);
                       r = 255 - imageIn.getRComponent(x, y) * a / 255;
                       g = 255 - imageIn.getGComponent(x, y) * a / 255;
                       b = 255 - imageIn.getBComponent(x, y) * a / 255;
-                      imageIn.setPixelColor(x, y, r, g, b);
+                      newbuffer[x * imageIn.getWidth() + y] = Gdiplus::Color::MakeARGB(a, r, g, b);
                   }
               }
+
+              imageIn.setColorArray(newbuffer);
           }
           else 
           {

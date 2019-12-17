@@ -86,7 +86,8 @@
 #include "ImageFilter/HslModifyFilter.h"
 
 #include "ImageFilter/Util/Timer.h"
-
+#include "ImageFilter/Util/gdiplusencoder.h"
+using namespace image::util;
 using namespace std;
 using namespace imagefilter;
 
@@ -211,23 +212,9 @@ vector<IImageFilter*> LoadFilterVector() {
 	return vectorFilter;
 }
 
-void SaveImage(imagefilter::Image image, string savePath, bool save = true)
-{
-	if(true) {
-		CString outfilePath((CString)savePath.c_str());
-		HRESULT hresult = image.destImage->Save(outfilePath);
-		if(FAILED(hresult)){
-		   cout << "failed";
-		   return ;
-		}
-	}
-	image.image->Destroy();
-	image.Destroy();
-	//string s = "";char* p = (char*)s.c_str();cin>>p;
-}
-
 int main()
 {
+	gdiplusbase base;
 	int i = 0;
 
 #if 1
@@ -247,7 +234,7 @@ int main()
 			image = it->process(image);
 		}
 
-		if (image.GetBPP() == 32) {
+		if (image.GetPixelFormat() == 32) {
 			sprintf(filePath, "d:\\filter\\%d.png", i);
 		}
 		else {
@@ -255,7 +242,8 @@ int main()
 		}
 
 		string filename(filePath);
-    	SaveImage(image, filename, false);
+
+		gdiplusencoder::createImage(image.destImage, filename, true);
 		i++;
     }
 

@@ -55,3 +55,7 @@ ImageFilterC++/Release/ImageFilterC++.exe
 ImageFilterC++/Release/ImageFilterC++.exe
 ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/17ec98f659e43846/LOADER.ipch
 ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/9a8926b44a24d65/LOADER.ipch
+ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/3c0f108896ec7f80/GDIPLUSENCODER.ipch
+ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/787e80ed7f060771/GDIPLUSDECODER.ipch
+ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/d06e00d6a57da711/GDIPLUSBASE.ipch
+*.ipch
