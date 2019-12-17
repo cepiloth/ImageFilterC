@@ -4,7 +4,7 @@ https://github.com/daizhenjun/ImageFilterC
 
 ### Converters, Importers, and Exporters
 
-| Tool          | Method                 | Throuput    | Description |
+| Preview       | Method                 | Throuput    | Description |
 |---------------|------------------------|-------------|-------------|
 | ![이미지](./ImageFilterC%2B%2B/sample/0.jpg) | InvertFilter           | 0.106086 ms |  |
 | ![이미지](./ImageFilterC%2B%2B/sample/1.jpg) | AutoLevelFilter        | 0.197569 ms |  |
