@@ -214,12 +214,14 @@ vector<IImageFilter*> LoadFilterVector() {
 	return vectorFilter;
 }
 
+#define NORMAL
+
 int main()
 {
 	gdiplusbase base;
 	int i = 0;
 
-#if 1
+#ifdef NORMAL
 	vector<IImageFilter*> v = LoadFilterVector();
 #else
 	vector<IImageFilter*> v = LoadFilterVectorTest();
