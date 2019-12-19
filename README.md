@@ -121,6 +121,7 @@ Lenna 이미지 사용
 | ![이미지](./ImageFilterC%2B%2B/sample/101.png)| HslModifyFilter	     | 0.105351 sec |
 
 ## Usage
+> InvertFilter 를 적용하는 예제
 ```c
 #include "stdafx.h"
 #include <math.h>
@@ -138,7 +139,7 @@ using namespace std;
 
 int main() {
    
-   imagefilter::Image image = imagefilter::Image::LoadImage("TODO PATH");
+   imagefilter::Image image = imagefilter::Image::loadImage("TODO PATH");
    InvertFilter invertFilter;
    invertFilter.process(image);
    
