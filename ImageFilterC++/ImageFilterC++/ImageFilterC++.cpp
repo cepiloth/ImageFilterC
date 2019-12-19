@@ -5,7 +5,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <assert.h>
 
 //v0.1
 #include "ImageFilter/InvertFilter.h"
@@ -232,7 +231,6 @@ int main()
 		
 		imagefilter::Image image = imagefilter::Image::LoadImage("d:\\Lenna.png");
 		//imagefilter::Image image = imagefilter::Image::LoadImage("d:\\png.png");
-
 		{
 			image::util::chrono_timer timer(i, it->get_type_id());
 			image = it->process(image);
