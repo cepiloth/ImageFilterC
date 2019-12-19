@@ -2,6 +2,34 @@
  > https://github.com/daizhenjun/ImageFilterC <br>
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
+## Usage
+> InvertFilter 를 적용하는 예제
+```c
+#include "stdafx.h"
+#include <math.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+#include "ImageFilter/InvertFilter.h"
+#include "ImageFilter/Util/Timer.h"
+#include "ImageFilter/Util/gdiplusencoder.h"
+
+using namespace imagefilter;
+using namespace image::util;
+using namespace std;
+
+int main() {
+   
+   imagefilter::Image image = imagefilter::Image::loadImage("TODO PATH");
+   InvertFilter invertFilter;
+   invertFilter.process(image);
+   
+   return 0;
+}
+
+```
+
 ## Overview Lenna Picture
 > https://en.wikipedia.org/wiki/Lenna <br>
 Lenna 이미지 사용
@@ -119,34 +147,6 @@ Lenna 이미지 사용
 | ![이미지](./ImageFilterC%2B%2B/sample/99.png)| HslModifyFilter	     | 0.111581 sec |
 | ![이미지](./ImageFilterC%2B%2B/sample/100.png)| HslModifyFilter	     | 0.115403 sec |
 | ![이미지](./ImageFilterC%2B%2B/sample/101.png)| HslModifyFilter	     | 0.105351 sec |
-
-## Usage
-> InvertFilter 를 적용하는 예제
-```c
-#include "stdafx.h"
-#include <math.h>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-#include "ImageFilter/InvertFilter.h"
-#include "ImageFilter/Util/Timer.h"
-#include "ImageFilter/Util/gdiplusencoder.h"
-
-using namespace imagefilter;
-using namespace image::util;
-using namespace std;
-
-int main() {
-   
-   imagefilter::Image image = imagefilter::Image::loadImage("TODO PATH");
-   InvertFilter invertFilter;
-   invertFilter.process(image);
-   
-   return 0;
-}
-
-```
 
 ## Development Environment
 1. CPU Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
