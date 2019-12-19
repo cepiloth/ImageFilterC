@@ -120,6 +120,33 @@ Lenna 이미지 사용
 | ![이미지](./ImageFilterC%2B%2B/sample/100.png)| HslModifyFilter	     | 0.115403 ms |
 | ![이미지](./ImageFilterC%2B%2B/sample/101.png)| HslModifyFilter	     | 0.105351 ms |
 
+## Usage
+```c
+#include "stdafx.h"
+#include <math.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+#include "ImageFilter/InvertFilter.h"
+#include "ImageFilter/Util/Timer.h"
+#include "ImageFilter/Util/gdiplusencoder.h"
+
+using namespace imagefilter;
+using namespace image::util;
+using namespace std;
+
+int main() {
+   
+   imagefilter::Image image = imagefilter::Image::LoadImage("TODO PATH");
+   InvertFilter invertFilter;
+   invertFilter.process(image);
+   
+   return 0;
+}
+
+```
+
 ## Development Environment
 1. CPU Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
 2. RAM 24.0gb
