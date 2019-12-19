@@ -2,12 +2,11 @@
  > https://github.com/daizhenjun/ImageFilterC <br>
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
-## Overview Lenna Picture
+## Overview
 > https://en.wikipedia.org/wiki/Lenna <br>
 Lenna 이미지 사용
 <center><img src="./ImageFilterC%2B%2B/sample/overview_lenna.jpg"></center>
 
-## Overview Earth Picture
 > https://en.wikipedia.org/wiki/Earth <br>
 지구 이미지 사용
 <center><img src="./ImageFilterC%2B%2B/sample/overview_earth.jpg"></center>
