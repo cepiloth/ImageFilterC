@@ -2,12 +2,12 @@
  > https://github.com/daizhenjun/ImageFilterC <br>
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
-## Overview Lenna
+## Overview Lenna Picture
 > https://en.wikipedia.org/wiki/Lenna <br>
 Lenna 이미지 사용
 <center><img src="./ImageFilterC%2B%2B/sample/overview_lenna.jpg"></center>
 
-## Overview Lenna
+## Overview Earth Picture
 > https://en.wikipedia.org/wiki/Earth <br>
 지구 이미지 사용
 <center><img src="./ImageFilterC%2B%2B/sample/overview_earth.jpg"></center>
@@ -17,7 +17,12 @@ Lenna 이미지 사용
 
 | Result Effect | Method                 | Throuput    | Description |
 |---------------|------------------------|-------------|-------------|
-| ![이미지](./ImageFilterC%2B%2B/sample/0.png) | InvertFilter           | 0.106086 ms |  |
+| ![이미지](./ImageFilterC%2B%2B/sample/0.png) | InvertFilter | 0.106086 ms |
+```c
+Image image = Image::LoadImage("TODO: Path")
+InvertFilter filter;
+filter.process(image);
+```|
 | ![이미지](./ImageFilterC%2B%2B/sample/1.png) | AutoLevelFilter        | 0.197569 ms |  |
 | ![이미지](./ImageFilterC%2B%2B/sample/2.png) | RadialDistortionFilter | 0.192900 ms |  |
 | ![이미지](./ImageFilterC%2B%2B/sample/3.png) | BannerFilter           | 0.288723 ms |  |
