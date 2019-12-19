@@ -32,13 +32,13 @@ public:
 
 	FillPatternFilter(std::string path)
 	{
-		pattern = imagefilter::Image::LoadImage(path);
+		pattern = imagefilter::Image::loadImage(path);
 		m_Mixture = 0.2f;
 	};
 
 	FillPatternFilter(std::string path, float mixture)
 	{
-		pattern = imagefilter::Image::LoadImage(path);
+		pattern = imagefilter::Image::loadImage(path);
 		m_Mixture = mixture;
 	};
 

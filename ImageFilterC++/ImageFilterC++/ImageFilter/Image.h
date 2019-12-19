@@ -315,7 +315,7 @@ public:
 		delete[] colorArray;
 	}
 
-	static Image LoadImage(const string& path){
+	static Image loadImage(const string& path){
 		
         Gdiplus::Bitmap* bitmap = gdiplusdecoder::loadImage(path);
         if (NULL == bitmap) {

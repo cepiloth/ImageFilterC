@@ -229,7 +229,7 @@ int main()
 	char filePath[64];
 	for(auto it : v){    
 		
-		imagefilter::Image image = imagefilter::Image::LoadImage("d:\\Lenna.png");
+		imagefilter::Image image = imagefilter::Image::loadImage("d:\\Lenna.png");
 		//imagefilter::Image image = imagefilter::Image::LoadImage("d:\\png.png");
 		{
 			image::util::chrono_timer timer(i, it->get_type_id());
