@@ -63,3 +63,5 @@ ImageFilterC++/.vs/ImageFilterC++/v16/ipch/AutoPCH/d06e00d6a57da711/GDIPLUSBASE.
 *.log
 *.txt
 *.log
+ImageFilterC++/Debug/texture1.png
+ImageFilterC++/Debug/texture2.png

@@ -82,6 +82,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="example.h" />
     <ClInclude Include="ImageFilter\BlindFilter.h" />
     <ClInclude Include="ImageFilter\ColorToneFilter.h" />
     <ClInclude Include="ImageFilter\Distort\BilinearDistort.h" />
