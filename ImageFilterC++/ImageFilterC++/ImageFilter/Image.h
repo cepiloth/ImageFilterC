@@ -19,9 +19,9 @@
 #if !defined(Image_H)
 #define Image_H
 
-#include "../stdafx.h"
 #include "Util/gdiplusdecoder.h"
 #include "Util/gdiplusdecoder.h"
+#include <string>
 using namespace image::util;
 
 #define SAFECOLOR(color) min(255, max(0, color))
@@ -36,7 +36,7 @@ private:
 public:
 	 
 	//format of image (jpg/png)
-    CString formatName;
+    std::string formatName;
 	 // RGB Array Color
 	unsigned int* colorArray;
 
@@ -247,7 +247,7 @@ public:
     /**
      * @return the formatName
      */
-    CString getFormatName() {
+    std::string getFormatName() {
         return formatName;
     }
 
@@ -255,7 +255,7 @@ public:
     /**
      * @param formatName the formatName to set
      */
-    void setFormatName(CString formatName) {
+    void setFormatName(std::string formatName) {
         formatName = formatName;
     }
 

@@ -62,9 +62,10 @@ public:
         }
     }
 
-	SupernovaFilter(int cr, int radius, int count) : _pt(CPoint(0,0)), _spoke(BoundParam1(count)), _spokecolor(BoundParam1(count))
+	SupernovaFilter(int cr, int radius, int count) : _spoke(BoundParam1(count)), _spokecolor(BoundParam1(count))
     {
-       _radius = BoundParam1(radius) ;
+        _pt.x = _pt.y = 0;
+        _radius = BoundParam1(radius) ;
         _count = BoundParam1(count) ;
 
         for (int i=0 ; i < _count ; i++)

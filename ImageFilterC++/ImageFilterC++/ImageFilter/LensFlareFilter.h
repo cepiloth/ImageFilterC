@@ -32,7 +32,9 @@ public:
         pt - coordinate on image
     */
     LensFlareFilter (POINT pt) : _point(pt) {}
-	LensFlareFilter () : _point(CPoint(0,0)) {}
+	LensFlareFilter (){
+        _point.x = _point.y = 0;
+    }
 
 private:
     struct FloatRGB
