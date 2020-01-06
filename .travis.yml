@@ -1,3 +1,28 @@
-install: make get-deps
-os: windows
-language: cpp
+language: C++
+sudo: false
+dist: trusty
+addons:
+  apt:
+    update: true
+    sources:
+      - llvm-toolchain-trusty-6.0
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
+      - libclang-6.0-dev
+      - llvm-6.0-dev
+      - gcc-4.9
+      - g++-4.9
+      - curl
+
+install:
+  - curl -fsS https://dlang.org/install.sh | bash -s ldc
+  - source ~/dlang/ldc-1.12.0/activate
+  - export CC="gcc-4.9"
+  - export CPP="g++-4.9"
+  - export CXX="g++-4.9"
+  - export LD="g++-4.9"
+
+script:
+  - mkdir -p build
+  - cd build
