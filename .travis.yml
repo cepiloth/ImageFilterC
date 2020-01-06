@@ -16,8 +16,6 @@ addons:
       - curl
 
 install:
-  - curl -fsS https://dlang.org/install.sh | bash -s ldc
-  - source ~/dlang/ldc-1.12.0/activate
   - export CC="gcc-4.9"
   - export CPP="g++-4.9"
   - export CXX="g++-4.9"
