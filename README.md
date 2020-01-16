@@ -2,6 +2,9 @@
  > https://github.com/daizhenjun/ImageFilterC <br>
 위 github 를 fork 하여 visual studio 2017 에서 사용할 수 있도록 하는 프로젝트 입니다.
 
+## History
+ > STB 라이브러리 연동 예정
+ 
 ## Overview
 > https://en.wikipedia.org/wiki/Lenna <br>
 Lenna 이미지 사용
