@@ -47,10 +47,10 @@ int main()
 		}
 
 		if (image.GetPixelFormat() == 32) {
-			sprintf(filePath, "d:\\filter\\%d.png", i);
+			sprintf_s(filePath, sizeof(filePath), "d:\\filter\\%d.png", i);
 		}
 		else {
-			sprintf(filePath, "d:\\filter\\%d.jpg", i);
+			sprintf_s(filePath, sizeof(filePath), "d:\\filter\\%d.jpg", i);
 		}
 
 		string filename(filePath);
