@@ -2,7 +2,6 @@
 
 namespace image
 {
-
 namespace util
 {
 
@@ -31,28 +30,12 @@ namespace util
 		Gdiplus::BitmapData bitmapData;
 		Gdiplus::Rect rect(0, 0, bitmap->GetWidth(), bitmap->GetHeight());
 
-		//get the bitmap data
-		if (Gdiplus::Ok == bitmap->LockBits(
-			&rect, //A rectangle structure that specifies the portion of the Bitmap to lock.
-			Gdiplus::ImageLockModeRead | Gdiplus::ImageLockModeWrite, //ImageLockMode values that specifies the access level (read/write) for the Bitmap.
-			bitmap->GetPixelFormat(),// PixelFormat values that specifies the data format of the Bitmap.
-			&bitmapData //BitmapData that will contain the information about the lock operation.
-		))
+		if (Gdiplus::Ok == bitmap->LockBits(&rect, Gdiplus::ImageLockModeRead | Gdiplus::ImageLockModeWrite, bitmap->GetPixelFormat(), &bitmapData))
 		{
-			//get the lenght of the bitmap data in bytes
 			int len = bitmapData.Height * std::abs(bitmapData.Stride);
 
 			BYTE* buffer = new BYTE[len];
-
-			// TODO:: 써글 오픈 소스 src, dst 반대로 해놓고 이걸 스택오버플로우에 올리네;..
-#if 0
-			memcpy(bitmapData.Scan0, buffer, len);//copy it to an array of BYTEs
-#else
 			memcpy(buffer, bitmapData.Scan0, len);//copy it to an array of BYTEs
-#endif
-			//... 
-
-			//cleanup
 			bitmap->UnlockBits(&bitmapData);
 			delete[]buffer;
 		}
